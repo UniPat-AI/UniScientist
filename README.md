@@ -1,18 +1,66 @@
 # UniScientist
 
-<p align="center">
-  <img src="assets/uniscientist.png" width="40%" alt="UniScientist">
-</p>
+<div align="center">
+  <picture>
+      <img src="./assets/uniscientist.png" width="30%">
+  </picture>
+</div>
 
-<p align="center">
-  <a href="https://unipat.ai/blog/UniScientist"><b>Blog</b></a> &nbsp;|&nbsp;
-  <a href="https://huggingface.co/UnipatAI"><b>Models</b></a> &nbsp;|&nbsp;
-  <a><b>Paper (Coming Soon)</b></a>
-</p>
 
-UniScientist is designed to advance universal scientific research intelligence through a unified paradigm. Leveraging an evolving polymathic synthesis, it generates research-grade data that enables structured, rubric-based supervision.
+<div align="center" style="line-height: 1;">
 
-## Project Structure
+[![Models](https://img.shields.io/badge/Models-4285F4?style=for-the-badge&logo=huggingface&logoColor=yellow)](https://huggingface.co/UnipatAI)
+[![GITHUB](https://img.shields.io/badge/Github-24292F?style=for-the-badge&logo=github&logoColor=white)](https://github.com/UniPat-AI/UniScientist)
+[![Blog](https://img.shields.io/badge/Blog-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://unipat.ai/blog/UniScientist)
+<!-- [![Paper](https://img.shields.io/badge/Paper-red?style=for-the-badge&logo=arxiv&logoColor=white)]() -->
+
+</div>
+
+> *Advancing Universal Scientific Research Intelligence via Evolving Polymathic Synthesis*
+
+
+UniScientist advances universal scientific research intelligence through a unified paradigm. By reassigning LLMs as cross-disciplinary generators and human experts as high-precision verifiers, it produces research-grade data spanning **50+ scientific disciplines** with structured, rubric-based supervision. A 30B-parameter model trained on this data achieves highly competitive performance across five research benchmarks. Read the [blog](https://unipat.ai/blog/UniScientist) first for a better overall impression.
+
+<div align="center">
+  <picture>
+      <img src="./assets/science_benchmark.png" width="85%">
+  </picture>
+</div>
+
+
+## Overview
+
+UniScientist formalizes open-ended scientific research as **Active Evidence Integration and Model Abduction**, and proposes the **Evolving Polymathic Synthesis** paradigm for synthesizing high-quality research problems and evaluation rubrics at scale.
+
+The approach comprises three key components:
+
+1. **Evolving Polymathic Synthesis** — A human-LLM collaborative data paradigm that generates research-grade scientific problems across 50+ disciplines, each accompanied by co-evolved rubrics refined through completeness, consistency, and distinguishability checks.
+2. **Agentic Research Loop** — The model conducts scientific research by iteratively acquiring evidence, deriving formally-justified results, and updating hypotheses via abductive inference, using tools including `web_search`, `google_scholar`, `page_fetching`, and `code_interpreter`.
+3. **Report Aggregation** — Given multiple candidate research reports, the model learns to synthesize a consolidated report integrating the best elements, enabling research quality to self-evolve over time.
+
+<div align="center">
+  <picture>
+      <img src="./assets/pipeline.png" width="85%">
+  </picture>
+</div>
+
+## Main Results
+
+UniScientist-30B-A3B achieves top-tier performance across all five benchmarks, surpassing much larger proprietary models:
+
+- **FrontierScience-Research**: **28.3** (surpassing Claude Opus 4.5 at 17.5, GPT-5.2 at 25.2), reaching **33.3** with test-time scaling (Aggr@8)
+- **FrontierScience-Olympiad**: **66.0** without tools, **71.0** with tools + Aggr@8 (matching Claude Opus 4.5)
+- **DeepResearch Bench**: **46.0** (vs. Perplexity Deep Research 42.3, OpenAI Deep Research 47.0)
+- **DeepResearch Bench II**: **48.0** (surpassing OpenAI Deep Research 45.4, Gemini-3-Pro Deep Research 44.6)
+- **ResearchRubrics**: **59.9** (comparable to OpenAI Deep Research 59.7, Gemini Deep Research 61.5)
+
+<div align="center">
+  <picture>
+      <img src="./assets/benchmark.png" width="85%">
+  </picture>
+</div>
+
+## Repository Structure
 
 ```
 UniScientist/
@@ -30,35 +78,13 @@ UniScientist/
 └── .gitignore
 ```
 
-## Setup
+## Quick Start
 
-### 1. Install Dependencies
+### Install
 
 ```bash
 pip install -r requirements.txt
 ```
-
-### 2. Obtain API Keys
-
-The following API keys are required for the tool suite:
-
-| Key | Service | Purpose |
-|-----|---------|---------|
-| `SERPER_KEY_ID` | [Serper](https://serper.dev/) | Google web search & Google Scholar |
-| `JINA_API_KEYS` | [Jina Reader](https://jina.ai/reader/) | Webpage content reading |
-| `OPENROUTER_API_KEY` | [OpenRouter](https://openrouter.ai/) | LLM-based webpage summarization |
-
-### 3. Prepare Data
-
-Place your input data in the `data/` directory as `.jsonl` files. Each line should be a JSON object with the following fields:
-
-```json
-{"problem": "Your research question here", "answer": "Ground truth answer / rubrics (optional)"}
-```
-
-## Usage
-
-The workflow consists of three steps:
 
 ### Step 1: Deploy Local LLM
 
@@ -96,7 +122,27 @@ python inference_local_aggregate.py \
     --llm-max-concurrency 32
 ```
 
-#### Aggregation Arguments
+## Configuration
+
+### API Keys
+
+The following API keys are required for the tool suite:
+
+| Key | Service | Description |
+|-----|---------|-------------|
+| `SERPER_KEY_ID` | [Serper](https://serper.dev/) | Google web search & Google Scholar |
+| `JINA_API_KEYS` | [Jina Reader](https://jina.ai/reader/) | Webpage content reading |
+| `OPENROUTER_API_KEY` | [OpenRouter](https://openrouter.ai/) | LLM-based webpage summarization |
+
+### Data Format
+
+Place your input data in the `data/` directory as `.jsonl` files:
+
+```json
+{"problem": "Your research question here", "answer": "Ground truth answer / rubrics (optional)"}
+```
+
+### Aggregation Arguments
 
 | Argument | Required | Default | Description |
 |----------|----------|---------|-------------|
@@ -107,6 +153,7 @@ python inference_local_aggregate.py \
 | `--local-base-url` | No | `http://localhost:8000/v1` | vLLM server endpoint |
 | `--output-path` | No | auto-generated | Custom output file path |
 | `--llm-max-concurrency` | No | `32` | Max concurrent LLM requests |
+
 
 ## Citation
 
