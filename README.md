@@ -85,7 +85,7 @@ Merge multiple rollout results into a single comprehensive report:
 
 ```bash
 python inference_local_aggregate.py \
-    --model-name "qwen3-235b" \
+    --model-name "UniScientist-30B-A3B" \
     --data-paths rollout_1.jsonl rollout_2.jsonl rollout_3.jsonl \
     --benchmark research \
     --rollout-num 1 \
