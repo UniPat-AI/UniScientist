@@ -1,7 +1,7 @@
 # UniScientist
 
 <p align="center">
-  <img src="assets/uniscientist.png" width="80%" alt="UniScientist">
+  <img src="assets/uniscientist.png" width="40%" alt="UniScientist">
 </p>
 
 <p align="center">
