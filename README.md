@@ -21,7 +21,11 @@
 
 UniScientist advances universal scientific research intelligence through a unified paradigm. By reassigning LLMs as cross-disciplinary generators and human experts as high-precision verifiers, it produces research-grade data spanning **50+ scientific disciplines** with structured, rubric-based supervision. A 30B-parameter model trained on this data achieves highly competitive performance across five research benchmarks. Read the [blog](https://unipat.ai/blog/UniScientist) first for a better overall impression.
 
-
+<div align="center">
+  <picture>
+      <img src="./assets/benchmark.png" width="85%">
+  </picture>
+</div>
 
 ## Overview
 
