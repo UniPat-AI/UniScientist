@@ -8,7 +8,7 @@
 # or inference_local_aggregate.py.
 # ============================================================
 
-MODEL_PATH=""  # Path to the local model weights (e.g., /path/to/Qwen3-235B-A22B)
+MODEL_PATH=""  # Path to the local model weights (e.g., /path/to/UniScientist-30B-A3B)
 
 python -m vllm.entrypoints.openai.api_server \
     --model $MODEL_PATH \
