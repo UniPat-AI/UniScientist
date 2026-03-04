@@ -1,0 +1,6 @@
+openai>=2.0.0
+json5>=0.13.0
+tqdm>=4.60.0
+aiohttp>=3.9.0
+tiktoken>=0.7.0
+qwen-agent>=0.0.31
