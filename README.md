@@ -1,6 +1,10 @@
 # UniScientist
 
 <p align="center">
+  <img src="assets/uniscientist.png" width="80%" alt="UniScientist">
+</p>
+
+<p align="center">
   <a href="https://unipat.ai/blog/UniScientist"><b>Blog</b></a> &nbsp;|&nbsp;
   <a href="https://huggingface.co/UnipatAI"><b>Models</b></a> &nbsp;|&nbsp;
   <a><b>Paper (Coming Soon)</b></a>
