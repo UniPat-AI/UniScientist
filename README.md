@@ -161,7 +161,7 @@ If you find UniScientist useful in your research, please cite:
 ```bibtex
 @misc{unipat2026uniscientist,
   title   = {UniScientist: Advancing Universal Scientific Research Intelligence},
-  author  = {UniPat AI Team},
+  author  = {Baixuan Li and Jialong Wu and Yida Zhao and Wendong Xu and Xuanzhong Chen and Huifeng Yin and Liang Chen and Wentao Zhang and Kuan Li},
   year    = {2026},
   url     = {https://unipat.ai/blog/UniScientist}
 }
