@@ -17,4 +17,3 @@ venv/
 # Logs & outputs
 log/
 *.log
-*.jsonl
