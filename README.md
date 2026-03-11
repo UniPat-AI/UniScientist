@@ -18,6 +18,8 @@
 
 > *Advancing Universal Scientific Research Intelligence via Evolving Polymathic Synthesis*
 
+### News
+- **[2026-03-11]** We release the full inference trajectories of UniScientist on the FrontierScience-Research benchmark. Check the [`trajectory/`](./trajectory/) folder for details.
 
 UniScientist advances universal scientific research intelligence through a unified paradigm. By reassigning LLMs as cross-disciplinary generators and human experts as high-precision verifiers, it produces research-grade data spanning **50+ scientific disciplines** with structured, rubric-based supervision. A 30B-parameter model trained on this data achieves highly competitive performance across five research benchmarks. Read the [blog](https://unipat.ai/blog/UniScientist) first for a better overall impression.
 
@@ -72,6 +74,10 @@ UniScientist/
 │   ├── tool_scholar.py             # Google Scholar search (via Serper API)
 │   ├── tool_visit.py               # Webpage reader (via Jina Reader API) with LLM summarization
 │   └── tool_code.py                # Python code interpreter
+├── trajectory/
+│   ├── uniscientist_research_traj.jsonl          # Single-rollout trajectories (with tools)
+│   ├── uniscientist_research_no_tool_traj.jsonl  # Single-rollout trajectories (without tools)
+│   └── uniscientist_research_aggregate8_traj.jsonl # Aggregated trajectories (Aggr@8)
 ├── data/                           # Place your input data here (see Data Format below)
 ├── requirements.txt
 └── .gitignore
