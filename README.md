@@ -19,6 +19,7 @@
 > *Advancing Universal Scientific Research Intelligence via Evolving Polymathic Synthesis*
 
 ### News
+- **[2026-03-14]** UniScientist-30B-A3B is now available for download on [HuggingFace](https://huggingface.co/UnipatAI/UniScientist-30B-A3B) and [ModelScope](https://modelscope.cn/models/UniPatAI/UniScientist-30B-A3B).
 - **[2026-03-11]** We release the full inference trajectories of UniScientist on the FrontierScience-Research benchmark. Check the [`trajectory/`](./trajectory/) folder for details.
 
 UniScientist advances universal scientific research intelligence through a unified paradigm. By reassigning LLMs as cross-disciplinary generators and human experts as high-precision verifiers, it produces research-grade data spanning **50+ scientific disciplines** with structured, rubric-based supervision. A 30B-parameter model trained on this data achieves highly competitive performance across five research benchmarks. Read the [blog](https://unipat.ai/blog/UniScientist) first for a better overall impression.
